@@ -1,0 +1,30 @@
+{
+  "name": "nodejs-ble-scan",
+  "version": "1.0.0",
+  "description": "Test scanning bles with Nodejs",
+  "main": "app.js",
+  "dependencies": {
+    "noble": "^0.3.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mauriciomassaia/nodejs-ble-scan.git"
+  },
+  "keywords": [
+    "nodejs",
+    "ble",
+    "noble",
+    "javascript",
+    "bluetooth"
+  ],
+  "author": "Mauricio Massaia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mauriciomassaia/nodejs-ble-scan/issues"
+  },
+  "homepage": "https://github.com/mauriciomassaia/nodejs-ble-scan"
+}
