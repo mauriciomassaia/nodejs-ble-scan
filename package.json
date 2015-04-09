@@ -6,7 +6,6 @@
   "dependencies": {
     "noble": "^0.3.11"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
