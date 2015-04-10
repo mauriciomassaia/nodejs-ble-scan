@@ -13,7 +13,7 @@ var BLE_RSSI_MIN      = -60;
 
 
 var minorBlueList = [6077,6078, 6079];
-var minorRedList = [6070,6073, 6074];
+var minorRedList = [6070,6073, 6072];
 
 
 var noble = require('noble');
@@ -102,7 +102,7 @@ function checkPeripheral(peripheral, beanId, team) {
   // check timestamp
 
   if (peripheral.rssi > BLE_RSSI_MIN) {
-    console.log(team, 'Valid Range!!!!', peripheral.rssi);
+    console.log('[' + team + '] beanId:', beanId, ' -- Valid Range!!!!', peripheral.rssi);
     // console.log(peripheral.advertisement.localName);
     console.log('----');
 
@@ -115,7 +115,7 @@ function checkPeripheral(peripheral, beanId, team) {
 
 
   } else {
-    console.log('out of range', peripheral.rssi, peripheral.advertisement.localName);
+    console.log('beanId:', beanId,'out of range', peripheral.rssi, peripheral.advertisement.localName);
   }
 
   // return null;
