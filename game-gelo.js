@@ -102,7 +102,7 @@ function checkPeripheral(peripheral, beanId, team) {
   // check timestamp
 
   if (peripheral.rssi > BLE_RSSI_MIN) {
-    console.log('[' + team + '] beanId:', beanId, 'Valid Range!!!!', peripheral.rssi);
+    console.log('[' + team + '] beanId:', beanId, ' -- Valid Range!!!!', peripheral.rssi);
     // console.log(peripheral.advertisement.localName);
     console.log('----');
 
@@ -115,7 +115,7 @@ function checkPeripheral(peripheral, beanId, team) {
 
 
   } else {
-    console.log(' beanId:', beanId, 'out of range', peripheral.rssi, peripheral.advertisement.localName);
+    console.log('beanId:', beanId,'out of range', peripheral.rssi, peripheral.advertisement.localName);
   }
 
   // return null;

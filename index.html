@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+  <title>Socket.IO chat</title>
+</head>
+<style>
+body{
+  font-family: helvetica;
+}
+  .center{
+    width: 400px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    text-align: center;
+    min-height: 200px;
+  }
+  #status{
+    font-size: 24px;
+  }
+</style>
+<body>
+  <div class="center">
+    <h2>CURRENT TEAM WITH FLAG</h2>
+    <div id="winner"></div>
+    <div id="blue"></div>
+    <div id="red"></div>
+    <div id="status"></div>
+    <div style="display:none;" id="hidden"></div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+
+  <script>
+    var socket = io();
+    socket.on('bluewinner', function (data) {
+      console.log(data);
+      socket.emit('blue team captured', { my: 'data' });
+      $('#status').html('<p>' + data.blue + '</p>')
+    });
+
+    socket.on('redwinner', function (data) {
+      console.log(data);
+      socket.emit('red team captured', { my: 'data' });
+      $('#status').html('<p>' + data.red + '</p>')
+    });
+
+    socket.on('nowinner', function (data) {
+      console.log(data);
+      socket.emit('no team scores', { my: 'data' });
+      $('#hidden').html('<p>' + data.no + '</p>' )
+    });
+
+    // socket.on('currentround', function (data) {
+    //   console.log(data);
+    //   socket.emit('current round', { my: 'data' });
+    //   $('#current').append('<p> RED -- ' + data.red + '</p>' + '<p> BLUE -- ' + data.blue + '</p>')
+    // });
+
+    socket.on('gameend', function (data) {
+      console.log(data);
+      socket.emit('game end', { my: 'data' });
+      $('#winner').append('<p>' + data.end + '</p>');
+      $('#blue').append('<p>' + 'BLUE' + '</p>' + '<p>' + data.blue + '</p>');
+      $('#red').append('<p>' + 'RED' + '</p>' + '<p>' + data.red + '</p>');
+
+    });
+</script>
+
+</body>
+</html>

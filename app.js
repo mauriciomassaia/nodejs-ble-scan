@@ -55,6 +55,8 @@ noble.on('discover', function(peripheral) {
 
       var major = d.substr(d.length - 11, 4);
       var minor = d.substr(d.length - 7, 4);
+
+      minor = parseInt(minor, 16);
       console.log('minor:', minor, 'major:', major)
       console.log('\there is my manufacturer data:' + JSON.stringify(peripheral.advertisement.manufacturerData));
       console.log('\there is my manufacturer data:' + JSON.stringify(peripheral.advertisement.manufacturerData.toString('hex')));
